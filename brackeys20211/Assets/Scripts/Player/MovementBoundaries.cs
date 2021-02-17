@@ -24,6 +24,7 @@ namespace Player
             MainCam = Camera.main;
             cameraRigidbody = MainCam.gameObject.AddComponent<Rigidbody2D>();
             cameraRigidbody.gravityScale = 0;
+            cameraRigidbody.bodyType = RigidbodyType2D.Static;
             AddCollider(GameManager.Instance.screenHalfWidth, GameManager.Instance.screenHalfHeight);
             AddCollider(-GameManager.Instance.screenHalfWidth, GameManager.Instance.screenHalfHeight);
         }
