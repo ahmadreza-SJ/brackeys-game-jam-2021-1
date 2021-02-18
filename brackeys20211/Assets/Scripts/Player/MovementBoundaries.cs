@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace Player
 {
@@ -25,8 +26,10 @@ namespace Player
             cameraRigidbody = MainCam.gameObject.AddComponent<Rigidbody2D>();
             cameraRigidbody.gravityScale = 0;
             cameraRigidbody.bodyType = RigidbodyType2D.Static;
-            AddCollider(GameManager.Instance.screenHalfWidth, GameManager.Instance.screenHalfHeight);
-            AddCollider(-GameManager.Instance.screenHalfWidth, GameManager.Instance.screenHalfHeight);
+            Range xRange = GameManager.Instance.GetCameraViewXRange(0);
+            Range yRange = GameManager.Instance.GetCameraViewYRange(0);
+            AddCollider(xRange.Min, yRange.Max);
+            AddCollider(xRange.Max, yRange.Max);
         }
     }
 }
