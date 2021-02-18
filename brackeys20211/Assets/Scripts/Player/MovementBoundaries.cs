@@ -28,8 +28,8 @@ namespace Player
             cameraRigidbody.bodyType = RigidbodyType2D.Static;
             Range xRange = GameManager.Instance.GetCameraViewXRange(0);
             Range yRange = GameManager.Instance.GetCameraViewYRange(0);
-            AddCollider(xRange.Min, yRange.Max);
-            AddCollider(xRange.Max, yRange.Max);
+            AddCollider(MainCam.transform.position.x - xRange.Min, yRange.Max - MainCam.transform.position.y);
+            AddCollider(MainCam.transform.position.x - xRange.Max, yRange.Max - MainCam.transform.position.y);
         }
     }
 }
