@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TouchScript.Gestures.TransformGestures;
 
 namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(100, 40));
-        }
+        public float ForceMultiplyer = 1;
 
+
+        public void Shoot(Vector2 direction)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(direction * ForceMultiplyer);
+        }
 
     }
 }
